@@ -1,6 +1,7 @@
+import { useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useContext } from "react";
+
 import { ThemeContext } from "../../../context/theme/ThemeContext";
 import { HomeScreen } from "../../../screens/private/HomeScreen";
 import { EcommerceNavigation } from "./ecommerce/EcommerceNavigation";
@@ -18,6 +19,8 @@ export type TabBarNavigation = {
 
 const Tab = createBottomTabNavigator<TabBarNavigation>();
 
+const ICON_TAB_SIZE = 30;
+
 export const TabNavigation = () => {
 
     const { theme } = useContext(ThemeContext)
@@ -26,7 +29,10 @@ export const TabNavigation = () => {
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarShowLabel: false
+                tabBarShowLabel: false,
+                tabBarStyle: {
+                    height: 70
+                }
             }}
         >
 
@@ -38,7 +44,7 @@ export const TabNavigation = () => {
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name="home-outline"
-                            size={26}
+                            size={ICON_TAB_SIZE}
                             color={(focused) ? theme.colors.primary : theme.colors.text}
                         />
                     )
@@ -53,7 +59,7 @@ export const TabNavigation = () => {
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name="person-outline"
-                            size={26}
+                            size={ICON_TAB_SIZE}
                             color={(focused) ? theme.colors.primary : theme.colors.text}
                         />
                     )
@@ -75,7 +81,7 @@ export const TabNavigation = () => {
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name="grid-outline"
-                            size={26}
+                            size={ICON_TAB_SIZE}
                             color={(focused) ? theme.colors.primary : theme.colors.text}
                         />
                     )
@@ -90,7 +96,7 @@ export const TabNavigation = () => {
                     tabBarIcon: ({focused})=>(
                         <Ionicons 
                             name="cart-outline"
-                            size={26}
+                            size={ICON_TAB_SIZE}
                             color={(focused) ? theme.colors.primary : theme.colors.text}
                         />
                     )
@@ -105,7 +111,7 @@ export const TabNavigation = () => {
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name="settings-outline"
-                            size={26}
+                            size={ICON_TAB_SIZE}
                             color={(focused) ? theme.colors.primary : theme.colors.text}
                         />
                     )

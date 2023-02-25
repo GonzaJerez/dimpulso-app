@@ -2,6 +2,7 @@ import { Theme } from "@react-navigation/native";
 
 export interface ThemeState extends Theme {
     // colores personalizados
+    lightText: string;
 }
 
 export type ThemeActions =

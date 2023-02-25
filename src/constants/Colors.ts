@@ -2,6 +2,7 @@ import { ThemeState } from "../interfaces/theme-interfaces"
 
 export const lightTheme: ThemeState = {
     dark: false,
+    lightText: '#555',
     colors: {
       primary: '#92D2B9',
       background: '#fafafa',
@@ -14,6 +15,7 @@ export const lightTheme: ThemeState = {
 
 export const darkTheme: ThemeState = {
     dark: false,
+    lightText: '#555',
     colors: {
       primary: '#92D2B9',
       background: '#fafafa',

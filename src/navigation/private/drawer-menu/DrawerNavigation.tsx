@@ -1,5 +1,9 @@
+import { useContext } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import { CustomDrawer } from '../../../components/menu/CustomDrawer';
+import { ThemeContext } from '../../../context/theme/ThemeContext';
 import { TabNavigation } from '../tab-menu/TabNavigation';
 import { AgendaNavigation } from './agenda/AgendaNavigation';
 import { RecetarioNavigation } from './recetario/RecetarioNavigation';
@@ -15,8 +19,11 @@ export type DrawerNavigation = {
 
 const Drawer = createDrawerNavigator<DrawerNavigation>();
 
+const ICON_DRAWER_SIZE = 20;
+
 export const DrawerNavigation = ()=>{
     
+    const { theme } = useContext(ThemeContext)
 
     return (
         <Drawer.Navigator
@@ -32,6 +39,13 @@ export const DrawerNavigation = ()=>{
                 options={{
                     title: 'Inicio',
                     headerShown: false,
+                    drawerIcon: ({focused})=>(
+                        <Ionicons
+                            name="home-outline"
+                            size={ICON_DRAWER_SIZE}
+                            color={(focused) ? theme.colors.primary : theme.colors.text}
+                        />
+                    )
                 }}
             />
             <Drawer.Screen 
@@ -39,6 +53,13 @@ export const DrawerNavigation = ()=>{
                 component={RecetarioNavigation}
                 options={{
                     title: 'Recetario',
+                    drawerIcon: ({focused})=>(
+                        <Ionicons
+                            name="receipt-outline"
+                            size={ICON_DRAWER_SIZE}
+                            color={(focused) ? theme.colors.primary : theme.colors.text}
+                        />
+                    )
                 }}
             />
             <Drawer.Screen 
@@ -46,6 +67,13 @@ export const DrawerNavigation = ()=>{
                 component={TurneroNavigation}
                 options={{
                     title: 'Turnero',
+                    drawerIcon: ({focused})=>(
+                        <Ionicons
+                            name="shield-checkmark-outline"
+                            size={ICON_DRAWER_SIZE}
+                            color={(focused) ? theme.colors.primary : theme.colors.text}
+                        />
+                    )
                 }}
             />
             <Drawer.Screen 
@@ -53,6 +81,13 @@ export const DrawerNavigation = ()=>{
                 component={AgendaNavigation}
                 options={{
                     title: 'Agenda',
+                    drawerIcon: ({focused})=>(
+                        <Ionicons
+                            name="calendar-outline"
+                            size={ICON_DRAWER_SIZE}
+                            color={(focused) ? theme.colors.primary : theme.colors.text}
+                        />
+                    )
                 }}
             />
         </Drawer.Navigator>
