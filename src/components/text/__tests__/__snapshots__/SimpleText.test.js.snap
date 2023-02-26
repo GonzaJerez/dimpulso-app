@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleText /> should be render successfully 1`] = `
+<Text
+  style={
+    Object {
+      "color": "black",
+    }
+  }
+>
+  Hola
+</Text>
+`;
